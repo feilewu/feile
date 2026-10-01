@@ -7,7 +7,7 @@ on:
   pull_request:
 
 jobs:
-  deploy:
+  build-and-deploy:
     runs-on: ubuntu-22.04
     concurrency:
       group: ${{ github.workflow }}-${{ github.ref }}
@@ -25,3 +25,29 @@ jobs:
 
       - name: Build
         run: hugo --minify
+
+      - name: 打包 public 目录
+        run: zip -r public.zip public/
+
+      - name: 生成北京时间作为 Release 名称
+        id: date
+        run: |
+          # 转换为北京时间，格式如：20261001-2015
+          echo "release_name=$(date -d '+8 hours' +'%Y%m%d-%H%M')" >> $GITHUB_OUTPUT
+
+      - name: 创建当前 Release 并上传
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ steps.date.outputs.release_name }}
+          name: Release-${{ steps.date.outputs.release_name }}
+          files: public.zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: 自动清理旧发布（只保留最新的 5 个）
+        uses: dev-drprasad/delete-older-releases@v0.3.4
+        with:
+          keep_latest: 5        # 关键配置：始终只保留最新的 5 个 Release
+          delete_tags: true     # 同时删掉旧 Release 对应的 Git 标签，防止标签污染
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
