@@ -6,10 +6,10 @@ auther: admin
 excerpt: Spring的启动流程--注解方式启动1. 创建AnnotationConfigApplicationContext1.1 创建beanFactorythis.beanFactory = new DefaultListableBeanFactory();1.2 创建Readerthis.reader
 permalink: /?p=70
 categories:
- - spring
-tags: 
- - java
- - spring
+  - spring
+tags:
+  - java
+  - spring
 ---
 
 ## Bean生命周期
