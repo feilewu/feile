@@ -1,3 +1,13 @@
+---
+title: github创建action部署用户
+date: 2026-10-01 22:29:53
+auther: feile
+categories:
+ - '编程'
+tags: 
+ - git
+ - github
+---
 
 # 账户准备
 

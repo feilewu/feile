@@ -1,5 +1,6 @@
 baseURL: https://www.feilewu.cn/
 locale: zh-cn
+timeZone: "Asia/Shanghai"
 title: 飞乐
 theme: ["PaperMod"]
 params:
