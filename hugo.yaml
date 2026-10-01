@@ -1,0 +1,25 @@
+baseURL: https://feilewu.cn/
+locale: zh-cn
+title: 飞乐
+theme: ["PaperMod"]
+params:
+  env: production
+  title: 飞乐
+  # ... 其他基础配置 ...
+  
+  # 开启全局文章目录
+  showToc: true        # 是否默认显示目录
+  TocOpen: true        # 目录是否默认展开
+  UseHugoToc: true     # 使用 Hugo 内置的 TOC 功能
+
+menu:
+  main:
+    - name: home
+      url: /
+      weight: 10
+    - name: categories
+      url: /categories/   # 对应分类页面
+      weight: 20
+    - name: tags
+      url: /tags/         # 对应标签页面
+      weight: 30
