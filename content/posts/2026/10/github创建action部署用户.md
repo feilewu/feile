@@ -38,7 +38,6 @@ sudo chmod 644 /home/git/.ssh/github_actions.pub
 sudo setfacl -R -m u:git:rwx /opt/1panel/www/sites
 ```
 
-
 # GitHub仓库setting里配置
 
 ```
@@ -49,4 +48,4 @@ Repository secrets里新建一个键值对即可
 
 key为SERVER_SSH_KEY，value为命令查询出的私钥值
 
-![[github创建部署用户-1.png]]
+![](https://pic.feilewu.cn/uploads/2026/10/02/4c08f08e-d150-471b-a70f-1172c6ada43e.png)
